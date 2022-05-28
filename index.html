@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<body>
+    <h1>
+        <div class="hh"><a href="index.html">Home</a></div>
+        <div>The Piano Game</div>
+    </h1>
+    <div class="button_box">
+        <ul class="l1">
+        <li><div><button href="newentry.html" type="button" class="btn btn-dark but1" style="height:40px; width:200px;" id="new_game">New game</button></div></li>
+        <li><div><button href="leaderboard_level.html type="button" class="btn btn-dark but2" style="height:40px; width:200px;" id="leader_board">Leaderboard</button></div></li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    document.getElementById("new_game").onclick = function () {
+        location.href = "newentry.html";
+    };
+
+    document.getElementById("leader_board").onclick = function () {
+        location.href = "leaderboard_level.html";
+    };
+
+</script>
+</html>
+
+<style>
+
+    html { 
+        background: url(indexbg.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+
+    h1{
+        position:absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        left: 0px;
+        margin: 0;
+        text-align: center;
+        color: blue;
+        background-color: lightblue;
+    }
+
+
+    .button_box{
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .l1{
+        list-style: none;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 15px;
+    }
+
+    .hh{
+        position: absolute;
+        text-align: left;
+        top: 50%;
+        font-size: 50%;
+    }
+
+</style>
