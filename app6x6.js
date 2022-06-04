@@ -37,6 +37,8 @@ for(let i=0;i<36;i++){
 }
 
 function phase(phase_no){
+    timer=100
+    time_obj.textContent=String(timer);
     unhover_them();
     for(let i=0;i<phase_no;i++){
         map[String(buttons[i])]=0;
