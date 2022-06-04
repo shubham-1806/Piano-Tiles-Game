@@ -8,12 +8,17 @@ var hov=':hover{ background-color: "aqua" }';
 
 const score_obj=document.querySelector('#score');
 
+const time_obj=document.querySelector('#time');
+
 let score=0;
 
 let click_counter=0;
 
 let flashing_mode=false;
 
+let timer=100
+
+let time_done=false
 
 
 for (let i=0;i<36;i++){
@@ -56,6 +61,7 @@ divs.forEach(div => {
                     var el = document.getElementById(clicked_id);
                     el.style.backgroundColor='red';
                     localStorage.setItem(localStorage.name,[String(score),'6']);
+                    time_done=true;
                     swal({
                         title: "Game Over",
                         text: `Total Score : ${score}`, 
@@ -71,6 +77,7 @@ divs.forEach(div => {
                     var el = document.getElementById(clicked_id);
                     el.style.backgroundColor='red';
                     localStorage.setItem(localStorage.name,[String(score),'6']);
+                    time_done=true;
                     swal({
                         title: "Game Over",
                         text: `Total Score : ${score}`, 
@@ -99,6 +106,7 @@ divs.forEach(div => {
                     click_counter=0;
                     var celeb_sound = document.getElementById("celeb");
                     celeb_sound.play();
+                    time_done=true;
                     swal({
                         title: "Good job!",
                         text: "You passed level "+String(Object.keys(map).length),
@@ -117,6 +125,7 @@ divs.forEach(div => {
                 var el = document.getElementById(clicked_id);
                 el.style.backgroundColor='red';
                 localStorage.setItem(localStorage.name,[String(score),'6']);
+                time_done=true;
                 swal({
                     title: "Game Over",
                     text: `Total Score : ${score}`, 
@@ -157,6 +166,7 @@ function flash(k){
 }
 
 function finally_flashed(l){
+    time_obj.textContent=String(timer);
     let i=0;
     flashing_mode=true;
     well=setInterval(() => {
@@ -165,9 +175,38 @@ function finally_flashed(l){
         if(i==l.length){
             flashing_mode=false;
             hover_them();
+            timer=100
+            time_done=false
+            check_timer()
             clearInterval(well)
         }
     }, 440);
+}
+
+
+
+function check_timer(){
+    ttt=setInterval(()=>{
+        timer-=1;
+        time_obj.textContent=String(timer);
+        if(timer==0){
+            clearInterval(ttt);
+            var ad = document.getElementById("over");
+            ad.play(); 
+            swal({
+                title: "Game Over",
+                text: `Total Score : ${score}`, 
+                icon: "error",
+                button: "Go Back!!",
+            }).then((result)=>{
+                window.location.href = "index.html";
+            })
+        }
+        if(time_done==true){
+            clearInterval(ttt);
+            return;
+        }
+    },1000)
 }
 
 function hover_them(){

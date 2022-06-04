@@ -17,7 +17,8 @@
         <source src="game_over.mp3" type="audio/mp3">
     </audio>
     <h1>Piano</h1>
-    <h2>Score : <span id="score">0</span></h2>
+    <div class="sc"><h2>Score : <span id="score">0</span></h2></div>
+    <div class="tt"><h2>Time : <span id="time">100</span></h2></div>
     <div class="pianoparent">
         <div class="piano">
             <div id="1" class="pi"></div>
@@ -72,7 +73,6 @@
         margin: 0;
         width: 100%;
         height: 2%;
-        text-align: right;
     }
 
     .piano{
@@ -119,4 +119,14 @@
         position: absolute;
         text-align: left;
     }
+
+    .tt{
+        text-align: left;
+    }
+
+    .sc{
+        text-align: right;
+    }
+
+
 </style>
